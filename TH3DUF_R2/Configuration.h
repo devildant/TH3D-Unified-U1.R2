@@ -162,8 +162,7 @@
 //#define ARTILLERY_AL4_Y_AXIS_TMC2208
 //#define ARTILLERY_AL4_Z_AXIS_TMC2208
 
-//===========================================================================
-// ***********************     ANYCUBIC PRINTERS     ************************
+
 //===========================================================================
 
 //===========================================================================
@@ -219,7 +218,7 @@
 //===========================================================================
 // Creality CR-10S Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
-//#define CR10S
+#define CR10S
 //#define CR10S_MINI
 //#define CR10S_S4
 //#define CR10S_S5
@@ -247,7 +246,7 @@
 //#define TM3DAERO
 //#define TM3DAERO_EXTENDED
 //#define PETSFANG  //This is the RIGHT mounted version - if using the left mount please use the CUSTOM_PROBE option.
-//#define CUSTOM_PROBE
+#define CUSTOM_PROBE
 
 // Touch LCD Setting - Enable this if you have the touch LCD are are getting a "paused for user" message in the terminal window.
 //#define TOUCH_LCD_FIX
@@ -263,6 +262,9 @@
 // If you are using a 2nd EZOut V2 (connects to Y+ connector) filament sensor kit please follow the install guide
 // and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUTV2_DUAL_ENABLE
+
+// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
+#define TMC_CREALITY_BOARD
 
 //===========================================================================
 // Creality CR-10S Pro Options - Select 'Arduino Mega 2560' from Tools > Board
@@ -841,12 +843,12 @@
 
 // If you want more or less EZABL probe points change the number below (only used if EZABL enabled)
 // Default is 3 which gives you 3x3 grid for a total of 9 points. STICK WITH ODD NUMBERS
-#define EZABL_POINTS 3
+#define EZABL_POINTS 9
 
 // If you want to change how far in or out the probe senses change EZABL_PROBE_EDGE value below
 // Most Machines - 35
 // Binder Clips? - 50
-#define EZABL_PROBE_EDGE 35
+#define EZABL_PROBE_EDGE 5
 
 // If you have issues with your machine running the faster probe setting disable the #define EZABL_FASTPROBE below.
 // DO NOTE: Most machines will work with the fast probe enabled. Use M48 to verify accuracy.
@@ -856,7 +858,7 @@
 //#define PROBING_MOTORS_OFF
 
 // Heaters will stay on during probing - only use if directed to by support. Do not use on AC beds.
-//#define HEATERS_ON_DURING_PROBING
+#define HEATERS_ON_DURING_PROBING
 
 // Letting the bed heat recover between probes can increase accuracy due to the bed warping during cooling/heating
 // Enabling the below option will let the bed get back to temperature during probing but will increase probing times.
@@ -864,7 +866,7 @@
 
 // If you want a more granular control over the babystepping uncomment the below line.
 // This will make the adjustment finer than the standard setting.
-//#define FINE_BABYSTEPPING
+#define FINE_BABYSTEPPING
 
 // This will extrapolate the implied tilt of the bed outside of the probe area. Do not comment out unless directed by support.
 #define EZABL_OUTSIDE_GRID_COMPENSATION
@@ -896,8 +898,8 @@
   *      O-- FRONT --+
   *    (0,0)
   */
-  #define X_PROBE_OFFSET_FROM_EXTRUDER 10  // X offset: -left  +right  [of the nozzle]
-  #define Y_PROBE_OFFSET_FROM_EXTRUDER 10  // Y offset: -front +behind [the nozzle]
+  #define X_PROBE_OFFSET_FROM_EXTRUDER -23  // X offset: -left  +right  [of the nozzle]
+  #define Y_PROBE_OFFSET_FROM_EXTRUDER -25  // Y offset: -front +behind [the nozzle]
 #endif
 
 //===========================================================================
@@ -913,9 +915,9 @@
 // If you need to reverse the e motor direction also enabled the REVERSE_E_MOTOR_DIRECTION option.
 // Example EStep Values: TH3D Aluminum Extruder - 95 ESteps, TH3D Tough Extruder - 463 ESteps, BMG Extruder - 415 ESteps
 // When installing a Tough Extruder or E3D Titan or Bondtech that is Geared you likely need to enable the REVERSE_E_MOTOR_DIRECTION option
-//#define CUSTOM_ESTEPS
-//#define REVERSE_E_MOTOR_DIRECTION
-#define CUSTOM_ESTEPS_VALUE 463
+#define CUSTOM_ESTEPS
+#define REVERSE_E_MOTOR_DIRECTION
+#define CUSTOM_ESTEPS_VALUE 415
 
 // FILAMENT SENSOR UNLOAD SETTINGS -----------------
 // If you have a filament sensor that is physically mounted to the machine you can enable MOUNTED_FILAMENT_SENSOR to set the unload length to 0 to prevent filament from backing up in the sensor by uncommenting MOUNTED_FILAMENT_SENSOR 
@@ -939,13 +941,13 @@
 //#define TH3D_HOTEND_THERMISTOR
 
 // If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE
-//#define KNOWN_HOTEND_THERMISTOR
-//#define KNOWN_HOTEND_THERMISTOR_VALUE X
+#define KNOWN_HOTEND_THERMISTOR
+#define KNOWN_HOTEND_THERMISTOR_VALUE 11
 
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
 // Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is.
-//#define HIGH_TEMP_THERMISTOR
-#define HIGH_TEMP_THERMISTOR_TEMP 350
+#define HIGH_TEMP_THERMISTOR
+#define HIGH_TEMP_THERMISTOR_TEMP 300
 
 // BED THERMISTOR SETTINGS -------------------------
 
@@ -963,14 +965,14 @@
 
 // If you want to make thermal protection periods less or more adjust below. The number is in seconds.
 // If you are getting false thermal runaway then increase the protection time. Do not make it over 300 for either setting.
-#define HOTEND_THERMAL_PROTECTION_TIME 60
+#define HOTEND_THERMAL_PROTECTION_TIME 120
 #define BED_THERMAL_PROTECTION_TIME 180
 
 // BED SETTINGS ------------------------------------
 
 // If you want PID tuning on your bed you can enable the below line. But PID on a bed is not typically needed. By default BED PID is disabled.
 // This will be disabled when using automatic or manual mesh leveling with a 1284p board due to memory limitations.
-//#define PIDBED_ENABLE
+#define PIDBED_ENABLE
 
 // If you are using an AC bed with a standalone controller (Keenovo) uncomment the below line to disable the heated bed in the firmware
 //#define AC_BED
@@ -984,7 +986,7 @@
 //#define FAN_FIX
 
 // Use your own printer name
-//#define USER_PRINTER_NAME "CHANGE ME" 
+#define USER_PRINTER_NAME "CR10S ultimate" 
 
 // If your printer is homing to the endstops hard uncomment this to change the homing speed/divisor to make it less aggressive.
 //#define SLOWER_HOMING
@@ -1025,13 +1027,13 @@
 // If you want to support the people that originally came up with the board you can get our EZOut breakout board here: http://EZOut.TH3DStudio.com
 // Sales from our shop allow us to allocate time for community firmware development at no charge to you. <3
 //
-//#define BLTOUCH
+#define BLTOUCH
 // If you are having issues with the probe not deploying/stowing correctly enable the below BLTOUCH_FORCE_SW_MODE
 //#define BLTOUCH_FORCE_SW_MODE
 // For V3.0 or 3.1: Set default mode to 5V mode at Marlin startup.
 //#define BLTOUCH_SET_5V_MODE
 // Here is where you set your servo pin. EZOut Servo Pin Numbers: Anet(with 2004LCD)/Ender3/5/CR-10 - 27, Anet(with 12864LCD)/Ender 2 - 29. For 2560 boards look for the pin you connected the servo wire to and enter below.
-//#define SERVO0_PIN 27
+#define SERVO0_PIN 11
 //
 // NOTE: On 1284p boards due to space limitations and the large amount of code the BLTouch requires for the LCD Menus
 // the Bootscreen and some Control > Motion menus will not be displayed due to space restrictions
@@ -1073,7 +1075,7 @@
  *    tr, uk, zh_CN, zh_TW, test
  */
 
-#define LCD_LANGUAGE en
+#define LCD_LANGUAGE fr
 
 #include "Configuration_beta.h"
 #include "Configuration_backend.h"

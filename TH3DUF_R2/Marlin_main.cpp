@@ -6799,7 +6799,17 @@ void home_all_axes() { gcode_G28(true); }
  * G92: Set current position to given X Y Z E
  */
 inline void gcode_G92() {
-
+  if (parser.boolval('H')) {
+    #if !IS_SCARA && !ENABLED(DELTA)
+      // For cartesian/core machines,
+      // set the axis to its home position
+      set_axis_is_at_home(Z_AXIS);
+      current_position[Z_AXIS] = parser.floatval('H');
+      sync_plan_position();
+      destination[Z_AXIS] = current_position[Z_AXIS];
+    #endif
+  }
+  
   #if ENABLED(CNC_COORDINATE_SYSTEMS)
     switch (parser.subcode) {
       case 1:
@@ -7856,7 +7866,10 @@ inline void gcode_M17() {
       SERIAL_ECHOPGM("Current file: ");
       card.printFilename();
     }
-
+    if (parser.seen('F')) {
+      card.getStatus(true);
+      return;
+    }
     #if ENABLED(AUTO_REPORT_SD_STATUS)
       else if (parser.seenval('S'))
         card.set_auto_report_interval(parser.value_byte());

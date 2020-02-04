@@ -3400,7 +3400,7 @@ void lcd_quick_feedback(const bool clear_buttons) {
       MENU_ITEM(function, MSG_STORE_EEPROM, lcd_store_settings);
     #endif
 
-    MENU_ITEM(function, MSG_RESTORE_FAILSAFE, lcd_factory_settings);
+    //MENU_ITEM(function, MSG_RESTORE_FAILSAFE, lcd_factory_settings);
 
     #if ENABLED(EEPROM_SETTINGS) && DISABLED(SLIM_LCD_MENUS)
       MENU_ITEM(submenu, MSG_INIT_EEPROM, lcd_init_eeprom_confirm);

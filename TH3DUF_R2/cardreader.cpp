@@ -459,9 +459,15 @@ void CardReader::removeFile(const char * const name) {
   }
 }
 
-void CardReader::getStatus() {
+void CardReader::getStatus(bool forced) {
   if (cardOK && sdprinting) {
     SERIAL_PROTOCOLPGM(MSG_SD_PRINTING_BYTE);
+    SERIAL_PROTOCOL(sdpos);
+    SERIAL_PROTOCOLCHAR('/');
+    SERIAL_PROTOCOLLN(filesize);
+  }
+   else if (cardOK && forced) {
+    SERIAL_PROTOCOLPGM("last SD byte after pause ");
     SERIAL_PROTOCOL(sdpos);
     SERIAL_PROTOCOLCHAR('/');
     SERIAL_PROTOCOLLN(filesize);

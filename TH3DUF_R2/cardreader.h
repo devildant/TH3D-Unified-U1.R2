@@ -55,7 +55,7 @@ public:
       const bool re_sort=false
     #endif
   );
-  void getStatus();
+  void getStatus(bool forced=false);
   void printingHasFinished();
   void printFilename();
 

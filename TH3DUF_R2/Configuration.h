@@ -935,13 +935,13 @@
 // HOTEND THERMISTOR SETTINGS ----------------------
 
 // If you are using an E3D V6 Hotend (or Hemera) with their cartridge thermistor (not glass version) uncomment the below line.
-//#define V6_HOTEND
+#define V6_HOTEND
 
 // If you are using a Tough Hotend from TH3D or any thermistors TH3D sells for your hotend uncomment the below line.
 //#define TH3D_HOTEND_THERMISTOR
 
 // If you are using a known hotend thermistor value uncomment the below 2 lines and enter the thermistor number replacing the X after the #define KNOWN_HOTEND_THERMISTOR_VALUE
-#define KNOWN_HOTEND_THERMISTOR
+//#define KNOWN_HOTEND_THERMISTOR
 #define KNOWN_HOTEND_THERMISTOR_VALUE 11
 
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.

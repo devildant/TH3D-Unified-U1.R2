@@ -259,9 +259,6 @@
 // and then uncomment the #define EZOUTV2_DUAL_ENABLE line below. Do NOT ever connect our filament sensor without the supplied adapter board.
 //#define EZOUTV2_DUAL_ENABLE
 
-// If you are using the Creality "Silent" Board with the TMC drivers uncomment the below line
-#define TMC_CREALITY_BOARD
-
 //===========================================================================
 // Creality CR-10S Pro Options - Select 'Arduino Mega 2560' from Tools > Board
 //===========================================================================
@@ -848,7 +845,7 @@
 
 // If you want more or less EZABL probe points change the number below (only used if EZABL enabled)
 // Default is 3 which gives you 3x3 grid for a total of 9 points. STICK WITH ODD NUMBERS
-#define EZABL_POINTS 9
+#define EZABL_POINTS 5
 
 // If you want to change how far in or out the probe senses change EZABL_PROBE_EDGE value below
 // Most Machines - 35
@@ -957,7 +954,7 @@
 
 // If you have a hotend and thermistor capable of over 290C you can set the max temp value below.
 // Setting this higher than 290C on a stock or traditional thermistor will damage it. Refer to your thermistor documentation to see what max temp is.
-#define HIGH_TEMP_THERMISTOR
+//#define HIGH_TEMP_THERMISTOR
 #define HIGH_TEMP_THERMISTOR_TEMP 300
 
 // BED THERMISTOR SETTINGS -------------------------
@@ -1003,7 +1000,7 @@
 //#define SLOWER_HOMING
 
 // Using a Creality Silent Board? Enable the below option to set the correct driver setting for those boards
-//#define TMC_CREALITY_BOARD
+#define TMC_CREALITY_BOARD
 
 // BOOT SCREEN OPTIONS -----------------------------
 

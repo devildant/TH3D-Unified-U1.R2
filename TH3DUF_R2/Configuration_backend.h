@@ -3142,7 +3142,7 @@
 #endif
 
 #define PIDTEMP
-#define BANG_MAX 255
+#define BANG_MAX 250
 #define PID_MAX BANG_MAX
 #define PID_K1 0.95
 
@@ -3179,7 +3179,9 @@
   #endif
 #endif
 
-#define MAX_BED_POWER 255
+//#define MAX_BED_POWER 255
+//try
+#define MAX_BED_POWER 127
 
 #if ENABLED(PIDTEMPBED)
   #if ENABLED(WANHAO_D6)

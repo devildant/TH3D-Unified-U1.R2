@@ -1030,6 +1030,7 @@
 // Change the K Value here or use M900 KX.XX in your starting code (recommended).
 #define LINEAR_ADVANCE_K 0
 
+#define Z_DUAL_STEPPER_DRIVERS
 // BL TOUCH ----------------------------------------
 // If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option in your printer section, 
 // and then enter your probe offsets in the CUSTOM_PROBE section above. The Pin 27 boards on other ecommerce sites are clones of our original EZOut.

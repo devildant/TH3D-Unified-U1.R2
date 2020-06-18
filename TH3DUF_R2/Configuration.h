@@ -1044,6 +1044,7 @@
 
 #define Z_DUAL_STEPPER_DRIVERS
 #define ENABLE_LEVELING_FADE_HEIGHT
+#define SD_CHECK_AND_RETRY
 
 // BL TOUCH ----------------------------------------
 // If you want to use the BL-Touch install your EZOut Board, uncomment the 2 lines below, uncomment the CUSTOM_PROBE option in your printer section, 

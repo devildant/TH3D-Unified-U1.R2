@@ -1045,7 +1045,7 @@
 #define Z_DUAL_STEPPER_DRIVERS
 #define ENABLE_LEVELING_FADE_HEIGHT
 #define SD_CHECK_AND_RETRY
-#define FILAMENT_LOAD_UNLOAD_GCODES
+//#define FILAMENT_LOAD_UNLOAD_GCODES
 #define EMERGENCY_PARSER
 
 // BL TOUCH ----------------------------------------

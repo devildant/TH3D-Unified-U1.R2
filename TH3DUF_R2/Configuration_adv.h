@@ -200,7 +200,7 @@
   #define ULTIPANEL_FEEDMULTIPLY  
 #endif
 
-#define DEFAULT_MINSEGMENTTIME        50000
+#define DEFAULT_MINSEGMENTTIME        30000
 #define SLOWDOWN
 #define MINIMUM_PLANNER_SPEED 0.05
 
@@ -320,7 +320,7 @@
 #if DISABLED(SLIM_1284P) && ENABLED(POWER_LOSS_RECOVERY)
   #define BUFSIZE 4
 #else
-  #define BUFSIZE 16
+  #define BUFSIZE 4
 #endif
 #define TX_BUFFER_SIZE 0
 

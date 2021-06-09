@@ -1103,6 +1103,17 @@
 
 #define LCD_LANGUAGE fr
 
+//add delay screen beta
+#ifndef ST7920_DELAY_1
+  #define ST7920_DELAY_1 DELAY_NS(200)
+#endif
+#ifndef ST7920_DELAY_2
+  #define ST7920_DELAY_2 DELAY_NS(400)
+#endif
+#ifndef ST7920_DELAY_3
+  #define ST7920_DELAY_3 DELAY_NS(200)
+#endif
+
 #define UNIFIED_VERSION "TH3D U1.R2.B3"
 #include "Configuration_backend.h"
 
